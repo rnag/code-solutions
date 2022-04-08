@@ -29,7 +29,7 @@ def fib_even_sum(c_sum=0, n0=0, n1=2, max=4_000_000):
 """note: unused :-)
 
 def fib(n):
-    if n <= 1:
+    if n <= 2:
         return 1
 
     return fib(n - 1) + fib(n - 2)
