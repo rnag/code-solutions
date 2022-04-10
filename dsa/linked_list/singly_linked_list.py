@@ -4,17 +4,10 @@ Hi there, I am a Singly Linked List. Nice to meet you!
 """
 from __future__ import annotations
 
+from dsa.node import Node
+
 from dataclasses import dataclass
-from pprint import pprint
 from typing import Any
-
-
-@dataclass
-class Node:
-    # val - piece of data
-    val: Any
-    # next - reference to next node
-    next: Node | None = None
 
 
 @dataclass

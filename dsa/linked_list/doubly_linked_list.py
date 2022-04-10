@@ -9,17 +9,14 @@ a pointer to the `previous` node.
 """
 from __future__ import annotations
 
+from dsa.node import Node
+
 from dataclasses import dataclass
-from pprint import pprint
 from typing import Any
 
 
 @dataclass
-class Node:
-    # val - piece of data
-    val: Any
-    # next - reference to next node
-    next: Node | None = None
+class Node(Node):
     # prev - reference to previous node
     prev: Node | None = None
 
