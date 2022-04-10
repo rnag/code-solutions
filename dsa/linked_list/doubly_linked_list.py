@@ -1,5 +1,10 @@
 """
-Hi there, I am a Singly Linked List. Nice to meet you!
+Almost identical to Singly Linked lists, except *every* node
+has **another** pointer, to the `previous` node.
+
+# Downsides
+A doubly linked list takes up **more memory**, because it *also* has
+a pointer to the `previous` node.
 
 """
 from __future__ import annotations
@@ -15,15 +20,17 @@ class Node:
     val: Any
     # next - reference to next node
     next: Node | None = None
+    # prev - reference to previous node
+    prev: Node | None = None
 
 
 @dataclass
-class SinglyLinkedList:
+class DoublyLinkedList:
     head: Node | None = None
     tail: Node | None = None
     length: int = 0
 
-    def push(self, val: Any) -> SinglyLinkedList:
+    def push(self, val: Any) -> DoublyLinkedList:
         """Push new node to end of the linked list"""
         new_node = Node(val)
 
@@ -33,6 +40,8 @@ class SinglyLinkedList:
         else:
             # set the current tail's `next` property to point to our new node
             self.tail.next = new_node
+            # set the new tail's `prev` property to point to our current tail
+            new_node.prev = self.tail
 
         # finally, set the new `tail` to point to our node
         self.tail = new_node
@@ -42,7 +51,7 @@ class SinglyLinkedList:
         return self
 
     # noinspection SpellCheckingInspection
-    def unshift(self, val: Any) -> SinglyLinkedList:
+    def unshift(self, val: Any) -> DoublyLinkedList:
         """Push new node to start of the linked list"""
         new_node = Node(val)
 
@@ -50,6 +59,8 @@ class SinglyLinkedList:
             # the linked list is empty (head/tail are both unset)
             self.tail = new_node
         else:
+            # set the current head's `prev` property to point to our current head
+            self.head.prev = new_node
             # set the new head's `next` property to point to the current head
             new_node.next = self.head
 
@@ -62,32 +73,27 @@ class SinglyLinkedList:
 
     def pop(self) -> Node | None:
         """Remove (and return) current node at end of the linked list"""
-        current = self.head
-        new_tail = current
 
-        if not current:
+        if not self.head:
             # list is empty (head/tail are undefined)
             return None
 
-        # loop while `next` property is defined (e.g. until we reach the tail)
-        while current.next:
-            # new tail lags behind `current` by ONE (1) node
-            new_tail = current
-            # increment `current` to point to the next node
-            current = current.next
+        popped_node = self.tail
 
-        # set the new tail on the linked list
-        self.tail = new_tail
-        self.tail.next = None
+        if self.length == 1:
+            # was one item, now no items left
+            self.head = self.tail = None
+        else:
+            # set the new tail on the linked list
+            self.tail = popped_node.prev
+            self.tail.next = None
+            # for returned node, we should clear or unlink the `previous` node
+            popped_node.prev = None
 
         # decrement length, since we removed an item
         self.length -= 1
 
-        if not self.length:
-            # was one item, now no items left
-            self.head = self.tail = None
-
-        return current
+        return popped_node
 
     def shift(self) -> Node | None:
         """Remove (and return) current node at start of the linked list"""
@@ -96,17 +102,19 @@ class SinglyLinkedList:
             return None
 
         current_head = self.head
-        self.head = current_head.next
 
-        # (optional) unlink the `next` node from our current head
-        current_head.next = None
+        if self.length == 1:
+            # was one item, now no items left
+            self.head = self.tail = None
+        else:
+            self.head = current_head.next
+            # clear the `previous` node from our new head
+            self.head.prev = None
+            # (optional) unlink the `next` node from our current head
+            current_head.next = None
 
         # decrement length, since we removed an item
         self.length -= 1
-
-        if not self.length:
-            # was one item, now no items left
-            self.tail = None
 
         return current_head
 
@@ -116,16 +124,24 @@ class SinglyLinkedList:
             # invalid index
             return None
 
-        current = self.head
-        counter = 0
+        count = current = None
 
-        while counter != index:
-            current = current.next
-            counter += 1
+        if index <= self.length // 2:
+            # starting from the start of linked list
+            current = self.head
+            count = 0
 
-        # alternate implementation:
-        #   for i in range(1, index + 1):
-        #       current = current.next
+            while count != index:
+                current = current.next
+                count += 1
+        else:
+            # starting from the end of linked list
+            current = self.tail
+            count = self.length - 1
+
+            while count != index:
+                current = current.prev
+                count -= 1
 
         return current
 
@@ -155,11 +171,16 @@ class SinglyLinkedList:
             return True
 
         new_node = Node(val)
-        prev = self.get(index - 1)
 
-        current = prev.next
+        # get `before` and `after` nodes
+        prev = self.get(index - 1)
+        next = prev.next
+        # update `next` and `prev` in existing nodes to point to new node
         prev.next = new_node
-        new_node.next = current
+        next.prev = new_node
+        # add `next` and `prev` connections for new node
+        new_node.prev = prev
+        new_node.next = next
 
         # increment length
         self.length += 1
@@ -177,16 +198,23 @@ class SinglyLinkedList:
         if index == self.length - 1:
             return self.pop()
 
-        prev = self.get(index - 1)
-        removed = prev.next
-        prev.next = removed.next
+        removed_node = self.get(index)
+        # retrieve the `before` and `after` nodes
+        prev = removed_node.prev
+        next = removed_node.next
+
+        prev.next = next
+        next.prev = prev
+
+        # (optional) unlink the `next` and `prev` node from our removed node
+        removed_node.next = removed_node.prev = None
 
         # decrement length, since we removed an item
         self.length -= 1
 
-        return removed
+        return removed_node
 
-    def reverse(self) -> SinglyLinkedList:
+    def reverse(self) -> DoublyLinkedList:
         """Reverse the linked list *in place*."""
 
         # start at `head`
