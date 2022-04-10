@@ -2,6 +2,8 @@
 
 ### Big O
 
+>  Wrap up: singly-linked lists beat out arrays at *insertion* and *removal*.
+
 - **Insertion - O(1)**
   - `push` and `unshift` are very fast, they take constant time
   - In arrays, this is *not* the case. It is O(N) instead.
