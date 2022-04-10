@@ -7,7 +7,7 @@ from __future__ import annotations
 from dsa.node import Node
 
 from dataclasses import dataclass
-from typing import Any, Generic, TypeVar
+from typing import Generic, TypeVar
 
 
 T = TypeVar('T')
