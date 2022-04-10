@@ -3,6 +3,11 @@
 Stacks are a **LIFO** data structure where the last value added
 is always the first one out.
 
+## Examples
+
+- A deck of `cards`
+- a stack of `plates`
+
 ## Big O
 
 - **Insertion - O(1)**
