@@ -1,5 +1,5 @@
 """
-Write a function sum_zero which accepts a sorted array of integers.
+Write a function called `sum_zero` which accepts a sorted array of integers.
 
 The function should find the first pair where the sum is 0. Return a
 tuple that includes both values that sum to zero or undefined if a
