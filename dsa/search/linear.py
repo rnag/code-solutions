@@ -8,6 +8,12 @@ If the value is never found, return -1.
 """
 
 
+# Linear Search solution
+#
+# Time complexity:
+#   Best case - O(1)
+#   Worst case - O(N)
+#   Average - O(N)
 def linear_search(arr, val):
     for i, n in enumerate(arr):
         if n == val:
