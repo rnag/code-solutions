@@ -2,8 +2,10 @@
 
 def fib(n, memo=None):
     if memo is None:
+        # initialize `memo` object
         memo = {}
     elif n in memo:
+        # check if `fib(n)` was already calculated
         return memo[n]
 
     if n <= 2:
