@@ -32,7 +32,7 @@ def example_2():
     graph.add_edge("D", "F")
     graph.add_edge("E", "F")
 
-    print(graph)
+    pprint(graph)
 
     result = graph.DFS_recursive("A")
     assert result == ['A', 'B', 'D', 'E', 'C', 'F']
