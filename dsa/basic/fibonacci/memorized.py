@@ -1,6 +1,12 @@
 
 
 def fib(n, memo=None):
+    """
+    Recursive implementation using a dictionary object to store the previous
+    results of calling `fib`.
+
+    Time complexity: O(N)
+    """
     if memo is None:
         # initialize `memo` object
         memo = {}

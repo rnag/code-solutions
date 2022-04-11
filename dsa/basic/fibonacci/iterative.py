@@ -1,6 +1,14 @@
 
 
 def fib(n):
+    """
+    This is uses a tabulated, "bottom-up" approach which is quite efficient.
+
+    The idea is to start from the start, and build up the list as we go all the
+    way up to `n - 1`.
+
+    Time complexity: O(N)
+    """
     memo = [0] * n
     memo[:3] = (0, 1, 1)
 
