@@ -24,6 +24,12 @@ def example_2():
     graph.add_vertex("E")
     graph.add_vertex("F")
 
+    #      A
+    #    /  \
+    #   B    C
+    #   D -- E
+    #   \   /
+    #     F
     graph.add_edge("A", "B")
     graph.add_edge("A", "C")
     graph.add_edge("B", "D")
