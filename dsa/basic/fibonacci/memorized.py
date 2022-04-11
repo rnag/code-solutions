@@ -15,5 +15,8 @@ def fib(n, memo=None):
     return res
 
 
+# 0.025 s
+print('Recursive: ', timeit('fib(10)', globals=globals(), number=10000))
+
 # 1.911 s
 print('Recursive: ', timeit('fib(500)', globals=globals(), number=10000))
