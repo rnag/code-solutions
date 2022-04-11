@@ -8,6 +8,7 @@ def fib(n):
     way up to `n - 1`.
 
     Time complexity: O(N)
+    Space complexity: O(N)
     """
     memo = [0] * n
     memo[:3] = (0, 1, 1)

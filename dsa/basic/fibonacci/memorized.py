@@ -6,6 +6,8 @@ def fib(n, memo=None):
     results of calling `fib`.
 
     Time complexity: O(N)
+    Space complexity: O(2 * N)
+        - Notes: the Space complexity of a recursive function call is O(N) alone.
     """
     if memo is None:
         # initialize `memo` object
