@@ -27,6 +27,7 @@ def example_2():
     #      A
     #    /  \
     #   B    C
+    #   |    |
     #   D -- E
     #   \   /
     #     F
