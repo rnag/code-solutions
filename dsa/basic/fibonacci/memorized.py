@@ -1,4 +1,3 @@
-from timeit import timeit
 
 
 def fib(n, memo=None):
@@ -15,8 +14,11 @@ def fib(n, memo=None):
     return res
 
 
-# 0.025 s
-print('Recursive: ', timeit('fib(10)', globals=globals(), number=10000))
+if __name__ == '__main__':
+    from timeit import timeit
 
-# 1.911 s
-print('Recursive: ', timeit('fib(500)', globals=globals(), number=10000))
+    # 0.025 s
+    print('Recursive: ', timeit('fib(10)', globals=globals(), number=10000))
+
+    # 1.911 s
+    print('Recursive: ', timeit('fib(500)', globals=globals(), number=10000))

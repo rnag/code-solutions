@@ -1,4 +1,3 @@
-from timeit import timeit
 
 
 def fib(n):
@@ -11,8 +10,11 @@ def fib(n):
     return memo[n - 1] + memo[n - 2]
 
 
-# 0.010 s
-print('Iterative: ', timeit('fib(10)', globals=globals(), number=10000))
+if __name__ == '__main__':
+    from timeit import timeit
 
-# 0.650 s
-print('Iterative: ', timeit('fib(500)', globals=globals(), number=10000))
+    # 0.010 s
+    print('Iterative: ', timeit('fib(10)', globals=globals(), number=10000))
+
+    # 0.650 s
+    print('Iterative: ', timeit('fib(500)', globals=globals(), number=10000))
