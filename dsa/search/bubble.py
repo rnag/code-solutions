@@ -1,5 +1,9 @@
 """
 Bubble Sort algorithm implementation in Python
+
+This approach "bubbles up" the largest values to the end of the array.
+On each iteration, the next largest value is moved up to its correct
+place.
 """
 
 
