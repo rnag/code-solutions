@@ -20,8 +20,13 @@ def selection_sort(arr):
             if arr[j] < arr[smallest]:
                 smallest = j
         # if there is a new `smallest`, swap the values at the indices
+        # print('*' * 30)
+        # print(arr)
         if i != smallest:
             arr[i], arr[smallest] = arr[smallest], arr[i]
+        # print('SWAPPING TO:')
+        # print(arr)
+        # print('*' * 30)
 
     return arr
 
