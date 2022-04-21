@@ -16,6 +16,12 @@ def test_anagrams_optimized():
     assert anagrams_optimized('123!@#$%', '  ')
     assert not anagrams_optimized('Hi there', 'Bye there')
 
+    assert anagrams_optimized('hello', 'llohe')
+    assert anagrams_optimized('Whoa! Hi!', 'Hi! Whoa!')
+    assert not anagrams_optimized('One One', 'Two two two')
+    assert not anagrams_optimized('One one', 'One one c')
+    assert not anagrams_optimized('A tree, a life, a bench', 'A tree, a fence, a yard')
+
 
 def test_anagrams():
     assert anagrams('', '')
@@ -23,3 +29,9 @@ def test_anagrams():
     assert anagrams('RAIL! SAFETY!', 'fairy tales')
     assert anagrams('123!@#$%', '  ')
     assert not anagrams('Hi there', 'Bye there')
+
+    assert anagrams('hello', 'llohe')
+    assert anagrams('Whoa! Hi!', 'Hi! Whoa!')
+    assert not anagrams('One One', 'Two two two')
+    assert not anagrams('One one', 'One one c')
+    assert not anagrams('A tree, a life, a bench', 'A tree, a fence, a yard')
