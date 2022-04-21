@@ -14,6 +14,15 @@ from collections import defaultdict
 
 
 def anagrams_optimized(s1: str, s2: str) -> bool:
+    return clean_string(s1) == clean_string(s2)
+
+
+# helper function to return sort alphabetic characters in a string
+def clean_string(s: str) -> str:
+    return ''.join(sorted(c for c in s.lower() if c.isalpha()))
+
+
+def anagrams(s1: str, s2: str) -> bool:
     # empty strings are considered equal
     if not s1 and not s2:
         return True
@@ -39,12 +48,3 @@ def anagrams_optimized(s1: str, s2: str) -> bool:
         freq[c] = c_count - 1
 
     return True
-
-
-def anagrams(s1: str, s2: str) -> bool:
-    return clean_string(s1) == clean_string(s2)
-
-
-# helper function to return sort alphabetic characters in a string
-def clean_string(s: str) -> str:
-    return ''.join(sorted(c for c in s.lower() if c.isalpha()))

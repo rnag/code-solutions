@@ -1,6 +1,14 @@
 from basic.anagrams.anagrams import anagrams, anagrams_optimized
 
 
+def test_compare_times():
+    from timeit import timeit
+    n = 100_000
+
+    print('anagrams_optimized: ', timeit("anagrams_optimized('rail safety', 'fairy tales')", globals=globals(), number=n))
+    print('anagrams:           ', timeit("anagrams('rail safety', 'fairy tales')", globals=globals(), number=n))
+
+
 def test_anagrams_optimized():
     assert anagrams_optimized('', '')
     assert anagrams_optimized('rail safety', 'fairy tales')
