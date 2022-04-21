@@ -17,3 +17,16 @@ def capitalize_idiomatic(s: str) -> str:
 def capitalize(s: str) -> str:
     return ' '.join(f'{word[0].upper()}{word[1:]}'
                     for word in s.split(' '))
+
+
+def capitalize_alt(s: str) -> str:
+    result = s[0].upper()
+    prev = result
+
+    for ch in s[1:]:
+        # lookbehind, if previous character is a space ( ), then uppercase
+        # the current character; else just add the character itself.
+        result += ch.upper() if prev == ' ' else ch
+        prev = ch
+
+    return result
