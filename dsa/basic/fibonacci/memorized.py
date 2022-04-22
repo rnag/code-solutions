@@ -16,8 +16,8 @@ def fib(n, memo=None):
         # check if `fib(n)` was already calculated
         return memo[n]
 
-    if n <= 2:
-        return 1
+    if n <= 1:
+        return n
 
     memo[n] = res = fib(n - 1, memo) + fib(n - 2, memo)
 
@@ -26,6 +26,13 @@ def fib(n, memo=None):
 
 if __name__ == '__main__':
     from timeit import timeit
+
+    assert fib(0) == 0
+    assert fib(1) == 1
+    assert fib(2) == 1
+    assert fib(3) == 2
+    assert fib(4) == 3
+    assert fib(39) == 63245986
 
     # 0.025 s
     print('Recursive: ', timeit('fib(10)', globals=globals(), number=10000))

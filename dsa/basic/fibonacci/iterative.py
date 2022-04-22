@@ -13,6 +13,9 @@ def fib(n):
     memo = [0] * n
     memo[:3] = (0, 1, 1)
 
+    if n < 3:
+        return memo[n]
+
     for i in range(3, n):
         memo[i] = memo[i - 1] + memo[i - 2]
 
@@ -21,6 +24,13 @@ def fib(n):
 
 if __name__ == '__main__':
     from timeit import timeit
+
+    assert fib(0) == 0
+    assert fib(1) == 1
+    assert fib(2) == 1
+    assert fib(3) == 2
+    assert fib(4) == 3
+    assert fib(39) == 63245986
 
     # 0.010 s
     print('Iterative: ', timeit('fib(10)', globals=globals(), number=10000))
