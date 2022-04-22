@@ -33,6 +33,10 @@ class Stack(Generic[T]):
     # size: the number of items in the stack
     size: int = 0
 
+    def __init__(self, *values: T):
+        for val in values:
+            self.push(val)
+
     def push(self, val: T) -> int:
         """Add an item to the top of the stack. Returns the new stack size."""
         new_node = Node(val)
