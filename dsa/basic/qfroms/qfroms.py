@@ -18,25 +18,25 @@ from stack.stack import Stack
 class Queue:
 
     def __init__(self, *vals):
-        self.s1 = Stack()
-        self.s2 = Stack()
+        self.first = Stack()
+        self.second = Stack()
 
         for val in vals:
             self.add(val)
 
     def add(self, val):
-        self.s1.push(val)
+        self.first.push(val)
 
     def remove(self):
-        # move over everything from stack A to stack B
-        while self.s1.first is not None:
-            self.s2.push(self.s1.pop())
+        # move over everything from *first* to *second* stack
+        while self.first.first is not None:
+            self.second.push(self.first.pop())
 
-        # remove first element from stack B
-        removed = self.s2.pop()
+        # remove first element from *second* stack
+        removed = self.second.pop()
 
-        # restore stack A
-        while self.s2.first is not None:
-            self.s1.push(self.s2.pop())
+        # restore *first* stack
+        while self.second.first is not None:
+            self.first.push(self.second.pop())
 
         return removed
