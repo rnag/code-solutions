@@ -33,6 +33,10 @@ class Queue(Generic[T]):
     # size: the number of items in the queue
     size: int = 0
 
+    def __init__(self, *values: T):
+        for val in values:
+            self.enqueue(val)
+
     def enqueue(self, val: T) -> int:
         """Add an item to the end of the queue. Returns the new queue size."""
         new_node = Node(val)

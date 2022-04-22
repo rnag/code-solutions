@@ -14,8 +14,8 @@ def memoize(fn):
 
 
 def slow_fib(n: int) -> int:
-    if n <= 1:
-        return n
+    if n <= 2:
+        return 1 if n == 2 else n
 
     return fib(n - 1) + fib(n - 2)
 
