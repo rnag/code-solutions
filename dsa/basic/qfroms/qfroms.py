@@ -1,12 +1,11 @@
 """
---- Directions
 Implement a Queue datastructure using two stacks.
 *Do not* create an array inside the 'Queue' class.
 
 Queue should implement the methods 'add' and 'remove'.
 
 --- Examples
-    const q = new Queue(1, 2);
+    q = Queue(1, 2);
     q.remove();  # returns 1
     q.remove();  # returns 2
 """

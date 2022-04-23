@@ -16,6 +16,10 @@ class SinglyLinkedList:
     tail: Node | None = None
     length: int = 0
 
+    def __init__(self, *vals):
+        for val in vals:
+            self.push(val)
+
     def push(self, val: Any) -> SinglyLinkedList:
         """Push new node to end of the linked list"""
         new_node = Node(val)
