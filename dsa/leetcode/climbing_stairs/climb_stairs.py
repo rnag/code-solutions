@@ -1,5 +1,5 @@
 """
-Find the minimum cost of climbing stairs
+Find the number of ways to climb a set of stairs
 
 Links for reference:
     - https://leetcode.com/problems/climbing-stairs/
