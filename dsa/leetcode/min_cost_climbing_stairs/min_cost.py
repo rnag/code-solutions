@@ -3,7 +3,7 @@ Find the minimum cost of climbing stairs
 
 Links for reference:
     - https://leetcode.com/problems/min-cost-climbing-stairs/
-    - https://www.youtube.com/watch?v=ktmzAZWkEZ0
+    - https://youtu.be/ktmzAZWkEZ0
 """
 
 from __future__ import annotations
