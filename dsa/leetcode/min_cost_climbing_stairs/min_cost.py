@@ -8,7 +8,8 @@ Links for reference:
 
 from __future__ import annotations
 
-__all__ = ['min_cost_climbing_stairs']
+__all__ = ['min_cost_climbing_stairs',
+           'min_cost_climbing_stairs_bottom_up']
 
 
 def min_cost_climbing_stairs(cost: list[int]) -> int:
@@ -19,3 +20,20 @@ def min_cost_climbing_stairs(cost: list[int]) -> int:
         cost[i] += cost_to_add
 
     return min(cost[0], cost[1])
+
+
+def min_cost_climbing_stairs_bottom_up(cost: list[int]) -> int:
+    n = len(cost)
+
+    if not n:
+        return 0
+
+    if n == 1:
+        return cost[0]
+
+    dp1, dp2 = cost[0], cost[1]
+
+    for i in range(2, n):
+        dp1, dp2 = dp2, cost[i] + min(dp1, dp2)
+
+    return min(dp1, dp2)
