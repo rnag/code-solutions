@@ -56,7 +56,8 @@ class WeightedGraph(Generic[T]):
                 while previous[smallest]:
                     path.append(smallest)
                     smallest = previous[smallest]
-
+                # add first vertex (start)
+                path.append(smallest)
                 break
 
             if smallest or distances[smallest] != float('inf'):
@@ -77,7 +78,6 @@ class WeightedGraph(Generic[T]):
                         # enqueue in priority queue with new priority
                         nodes.enqueue(next_neighbor, candidate)
 
-        path.append(smallest)
         path.reverse()
 
         return path
