@@ -7,11 +7,11 @@ from pprint import pprint
 from dsa.binary_tree.bst import BinarySearchTree, Node
 
 
-heap = BinarySearchTree()
+tree = BinarySearchTree()
 
 
 def main():
-    global heap
+    global tree
     print('=== Example: `insert()` ===')
     tree.insert(10)
     tree.insert(5)
@@ -52,7 +52,7 @@ def main():
 
 def traverse_method(meth_name: str):
     print(f'=== Example: `{meth_name}()` ===')
-    meth = getattr(heap, meth_name)
+    meth = getattr(tree, meth_name)
     result = meth()
     print(result)
     print()
