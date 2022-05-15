@@ -6,7 +6,8 @@ and `nums[i] + nums[j] + nums[k] == 0`.
 Notice that the solution set must not contain duplicate triplets.
 
 Links:
-    https://leetcode.com/problems/3sum/
+    - https://leetcode.com/problems/3sum/
+    - https://leetcode.com/problems/3sum/discuss/7498/Python-solution-with-detailed-explanation
 """
 from __future__ import annotations
 

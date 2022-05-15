@@ -2,11 +2,16 @@
 Given an `array` of integers nums and an integer `target`, return
 indices of the two numbers such that they add up to `target`.
 
+Links:
+  - https://leetcode.com/problems/two-sum
+  - https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+
 """
 from __future__ import annotations
 
 __all__ = ['two_sum_naive',
-           'two_sum']
+           'two_sum',
+           'two_sum_when_input_is_sorted']
 
 
 def two_sum_naive(nums: list[int], target: int) -> tuple[int, int] | None:
@@ -50,3 +55,32 @@ def two_sum(nums: list[int], target: int) -> tuple[int, int] | None:
         nums_cache[num_to_find] = i
 
     return None
+
+
+def two_sum_when_input_is_sorted(nums: list[int], target: int) -> tuple[int, int] | None:
+    """
+    Optimized *two-pointer* approach for two-sum when input array is already sorted.
+
+    Link: https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+
+    Time complexity: O(N)
+    Space complexity: O(1)
+    """
+    n = len(nums)
+    if n < 2:
+        return None
+
+    # use a two-pointer approach, a `left` and `right` pointer at both ends
+    l, r = 0, n - 1
+
+    while l < r:
+        sum2 = nums[l] + nums[r]
+
+        if sum2 == target:  # we are done
+            return l + 1, r + 1
+
+        elif sum2 < target:
+            l += 1
+
+        else:  # sum > target
+            r -= 1
