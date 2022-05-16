@@ -27,3 +27,17 @@ def test_trapping_rainwater_optimized():
         [0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2]) == 8
     assert trapping_rainwater_optimized(
         [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]) == 6
+
+
+def test_trapping_rainwater_optimized_clearer():
+    # zeros
+    assert trapping_rainwater_optimized_clearer([]) == 0
+    assert trapping_rainwater_optimized_clearer([7]) == 0
+    assert trapping_rainwater_optimized_clearer([7, 3]) == 0
+    assert trapping_rainwater_optimized_clearer([3, 4, 3]) == 0
+
+    assert trapping_rainwater_optimized_clearer([4, 2, 0, 3, 2, 5]) == 9
+    assert trapping_rainwater_optimized_clearer(
+        [0, 1, 0, 2, 1, 0, 3, 1, 0, 1, 2]) == 8
+    assert trapping_rainwater_optimized_clearer(
+        [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]) == 6

@@ -3,7 +3,7 @@ Copy this template and create a new example file from it as needed
 
 Links:
     - https://leetcode.com/problems/container-with-most-water/
-
+    - https://leetcode.com/problems/container-with-most-water/discuss/6131/O(N)-7-line-Python-solution-72ms
 """
 from __future__ import annotations
 
