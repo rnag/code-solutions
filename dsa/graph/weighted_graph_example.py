@@ -1,5 +1,5 @@
 """
-Copy this container_with_water and create a new example file from it as needed
+Copy this template and create a new example file from it as needed
 
 """
 from pprint import pprint

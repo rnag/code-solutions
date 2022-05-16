@@ -3,8 +3,8 @@ Given an `array` of integers nums and an integer `target`, return
 indices of the two numbers such that they add up to `target`.
 
 Links:
-  - https://leetcode.com/problems/two-sum
-  - https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+    - https://leetcode.com/problems/two-sum
+    - https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
 
 """
 from __future__ import annotations
