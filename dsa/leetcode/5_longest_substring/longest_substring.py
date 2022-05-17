@@ -49,21 +49,20 @@ def longest_substring_optimized(s: str) -> int:
     Time complexity: O(N)
     Space complexity: O(N)
     """
-    longest = count = l = 0
+    longest = l = 0
     seen = {}
 
     for r, char in enumerate(s):
         seen_index = seen.get(char, -1)
 
+        # check if we've seen the character before, but only within the
+        # current substring.
         if seen_index >= l:
-            longest = max(longest, count)
             l = seen_index + 1
-            count = r - l + 1
-        else:
-            count += 1
 
+        # save the character and its index
         seen[char] = r
-
-    longest = max(longest, count)
+        # update `longest` unique substring we've seen (if needed)
+        longest = max(longest, r - l + 1)
 
     return longest
