@@ -5,6 +5,9 @@ maximum sum of `n` consecutive elements in the array.
 
 """
 
+__all__ = ['max_sub_array_sum',
+           'max_sub_array_sum_naive']
+
 
 # Sliding window solution:
 #   Time complexity - O(N)
@@ -51,11 +54,3 @@ def max_sub_array_sum_naive(arr, n):
             max = temp
 
     return max
-
-
-if __name__ == '__main__':
-    assert max_sub_array_sum([1, 2, 5, 2, 8, 1, 5], 2) == 10
-    assert max_sub_array_sum([1, 2, 5, 2, 8, 1, 5], 4) == 17
-    assert max_sub_array_sum([4, 2, 1, 6], 1) == 6
-    assert max_sub_array_sum([4, 2, 1, 6, 2], 4) == 13
-    assert max_sub_array_sum([], 4) is None
