@@ -5,6 +5,22 @@ array, and counts the unique values in the array.
 There can be negative numbers in the array, but it will always be sorted.
 
 """
+__all__ = ['count_unique_values_single_ptr',
+           'count_unique_values']
+
+
+def count_unique_values_single_ptr(arr):
+    prev_num = None
+    count = 0
+
+    for num in arr:
+        if num == prev_num:
+            continue
+
+        prev_num = num
+        count += 1
+
+    return count
 
 
 def count_unique_values(arr):
