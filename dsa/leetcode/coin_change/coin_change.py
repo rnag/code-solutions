@@ -32,4 +32,4 @@ def coin_change(coins: list[int], amount: int) -> int:
                 dp[a] = min(dp[a], 1 + dp[diff])
 
     num_coins = dp[amount]
-    return num_coins if num_coins != amount + 1 else -1
+    return -1 if num_coins > amount else num_coins
