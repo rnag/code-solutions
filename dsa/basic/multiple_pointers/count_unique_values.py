@@ -27,12 +27,12 @@ def count_unique_values(arr):
     # i starts at 0, the first index essentially.
     # j starts at `i+1`, and essentially "leads" the way through the array.
     i = 0
-    len_arr = len(arr)
 
-    if not len_arr:  # array is empty
+    n = len(arr)
+    if not n:  # array is empty
         return 0
 
-    for j in range(1, len_arr):
+    for j in range(1, n):
         n1 = arr[i]
         n2 = arr[j]
 
